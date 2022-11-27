@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:edipo/core/extension/context_extension.dart';
+import 'package:edipo/product/widgets/card/place_card.dart';
 import "package:flutter/material.dart";
 
 class HomePage extends StatefulWidget {
@@ -29,19 +30,38 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(height: context.height * 0.05),
-          const Padding(padding: EdgeInsets.all(15.0), child: TopBarMenu()),
-          buildSlider(),
-          SizedBox(height: context.height * 0.05),
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: Column(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        child: Column(
+          children: [
+            SizedBox(height: context.height * 0.05),
+            const Padding(padding: EdgeInsets.symmetric(vertical:15.0), child: TopBarMenu()),
+            Padding(
+              padding: EdgeInsets.zero,
+              child: buildSlider(),
             ),
-          ),
-        ],
+            SizedBox(height: context.height * 0.05),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Yakınımdakiler',
+                  style: Theme.of(context).textTheme.headline1),
+            ),
+            Expanded(
+              flex: 1,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: 12,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Column(
+                      children: [
+                        const PlaceCard(),
+                        SizedBox(height: context.height * 0.01),
+                      ],
+                    );
+                  }),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {},
@@ -67,7 +87,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   CarouselSlider buildSlider() {
     return CarouselSlider(
       options: CarouselOptions(
-          enlargeCenterPage: true, autoPlay: true, viewportFraction: 0.9),
+          enlargeCenterPage: true, autoPlay: true, viewportFraction: 1),
       items: photoList.map<Widget>((index) {
         return Builder(
           builder: (BuildContext context) {
