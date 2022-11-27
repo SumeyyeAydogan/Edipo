@@ -29,7 +29,7 @@ class _CustomElevationButtonState extends State<CustomElevationButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: _completeProcess,
+      onPressed: widget.onPressed,
       style: ElevatedButton.styleFrom(
           minimumSize: widget.minimumSize,
           primary: widget.primaryColor,

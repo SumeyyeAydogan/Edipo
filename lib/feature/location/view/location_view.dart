@@ -11,7 +11,13 @@ class LocationPage extends StatefulWidget {
 }
 
 class _LocationPageState extends State<LocationPage> {
-  List<String> _locationsList = ["Fenomen Cafe", "Bikka", "Caribou", "Arzum"];
+  List<String> _locationsList = [
+    "Fenomen Cafe",
+    "Bikka",
+    "Caribou",
+    "Arzum",
+    "Chakra Cafe"
+  ];
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -19,16 +25,25 @@ class _LocationPageState extends State<LocationPage> {
         itemBuilder: (context, index) {
           return Column(
             children: [
-              ListTile( 
+              ListTile(
                 onTap: () {
                   customBottomSheet(context, QuestionsPage());
                 },
-                title: Text(_locationsList[index]),
-                leading: const Icon(Icons.location_on_outlined),
-                trailing: const Icon(Icons.chevron_right_rounded),
-                subtitle: Text(_locationsList[index]),
+                title: Text(_locationsList[index],
+                    style: Theme.of(context).textTheme.headline2),
+                leading: Icon(
+                  Icons.location_on_outlined,
+                  size: 35,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                trailing: Icon(
+                  Icons.chevron_right_rounded,
+                  size: 35,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+                subtitle: Text(_locationsList[_locationsList.length - index-1]),
               ),
-              const Divider(thickness: 50,),
+              const Divider(),
             ],
           );
         });

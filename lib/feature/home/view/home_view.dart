@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:edipo/core/extension/context_extension.dart';
+import 'package:edipo/feature/location/view/location_view.dart';
+import 'package:edipo/product/widgets/bottom_sheet.dart';
 import "package:flutter/material.dart";
 
 class HomePage extends StatefulWidget {
@@ -44,7 +46,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            customBottomSheet(context, LocationPage());
+          },
           child: Text('+', style: Theme.of(context).textTheme.headline1)),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
