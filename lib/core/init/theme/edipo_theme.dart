@@ -42,5 +42,6 @@ class EdipoTheme {
       subtitle1: TextStyle(fontSize: 12.0, color: Colors.black, fontFamily: "Urbanist",),
       bodyText1: TextStyle(fontSize: 11.0, color: Colors.black, fontFamily: "Urbanist",),
     ),
+    dividerTheme: const DividerThemeData(color: Colors.black54),
   );
 }
