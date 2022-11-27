@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           SizedBox(height: context.height * 0.05),
-          Padding(padding: const EdgeInsets.all(15.0), child: topBarMenu()),
+          const Padding(padding: EdgeInsets.all(15.0), child: topBarMenu()),
           buildSlider(),
           SizedBox(height: context.height * 0.05),
           SingleChildScrollView(
