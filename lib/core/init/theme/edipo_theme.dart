@@ -28,19 +28,51 @@ class EdipoTheme {
         foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
       ),
     ),
+    tabBarTheme: const TabBarTheme(
+        labelColor: Colors.black,
+        indicator:
+            UnderlineTabIndicator(borderSide: BorderSide(color: Colors.black))),
     textTheme: const TextTheme(
       button: TextStyle(
-          fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.white, fontFamily: "Urbanist",),
+        fontSize: 15.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+        fontFamily: "Urbanist",
+      ),
       headline6: TextStyle(
-          fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: "Urbanist",),
+        fontSize: 15.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+        fontFamily: "Urbanist",
+      ),
       headline5: TextStyle(
-          fontSize: 25.0, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: "Urbanist",),        
+        fontSize: 25.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+        fontFamily: "Urbanist",
+      ),
       headline1: TextStyle(
-          fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: "Urbanist",),
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+        fontFamily: "Urbanist",
+      ),
       headline2: TextStyle(
-          fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: "Urbanist",),
-      subtitle1: TextStyle(fontSize: 12.0, color: Colors.black, fontFamily: "Urbanist",),
-      bodyText1: TextStyle(fontSize: 11.0, color: Colors.black, fontFamily: "Urbanist",),
+        fontSize: 13.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+        fontFamily: "Urbanist",
+      ),
+      subtitle1: TextStyle(
+        fontSize: 12.0,
+        color: Colors.black,
+        fontFamily: "Urbanist",
+      ),
+      bodyText1: TextStyle(
+        fontSize: 11.0,
+        color: Colors.black,
+        fontFamily: "Urbanist",
+      ),
     ),
     dividerTheme: const DividerThemeData(color: Colors.black54),
   );

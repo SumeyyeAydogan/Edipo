@@ -1,3 +1,5 @@
+import 'package:edipo/core/constants/application_constants.dart';
+import 'package:edipo/core/init/theme/edipo_theme.dart';
 import 'package:edipo/feature/home/view/home_view.dart';
 import 'package:flutter/material.dart';
 
@@ -12,11 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: ApplicationConstants().appName,
       debugShowCheckedModeBanner: false,
-      title: 'Edypo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: EdipoTheme.defaultTheme,
       home: const HomePage(),
     );
   }
