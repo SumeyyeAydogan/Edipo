@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:edipo/core/extension/context_extension.dart';
+import 'package:edipo/feature/location/view/location_view.dart';
+import 'package:edipo/product/widgets/bottom_sheet.dart';
 import 'package:edipo/product/widgets/card/place_card.dart';
 import "package:flutter/material.dart";
 
@@ -64,7 +66,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            customBottomSheet(context, LocationPage());
+          },
           child: Text('+', style: Theme.of(context).textTheme.headline1)),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
@@ -124,7 +128,7 @@ class _TopBarMenuState extends State<TopBarMenu> {
               style: TextStyle(color: Colors.grey),
               children: <TextSpan>[
                 TextSpan(
-                    text: 'Ali Adıgüzel',
+                    text: 'Yusuf Şafak',
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.black)),
               ],

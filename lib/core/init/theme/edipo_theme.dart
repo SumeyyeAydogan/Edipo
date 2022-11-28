@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class EdipoTheme {
   static final defaultTheme = ThemeData(
+    fontFamily: "Urbanist",
     colorScheme: const ColorScheme.light(
       primary: Color(0xff4ab1b3),
       secondary: Color(0xFFED6B5E),
@@ -79,5 +80,11 @@ class EdipoTheme {
         fontFamily: "Urbanist",
       ),
     ),
+    dividerTheme: DividerThemeData(color: Colors.grey[400]),
+    radioTheme: RadioThemeData(fillColor:
+        MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      return const Color(0xFFED6B5E);
+    })),
+    cardTheme: CardTheme(color: Colors.grey[100]),
   );
 }
