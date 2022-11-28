@@ -6,6 +6,7 @@ class PlaceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         color: Colors.grey.shade100,
         elevation: 0.5,
         child: Padding(
