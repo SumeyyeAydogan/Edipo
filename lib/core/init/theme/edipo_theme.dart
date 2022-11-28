@@ -75,12 +75,11 @@ class EdipoTheme {
         fontFamily: "Urbanist",
       ),
     ),
-    dividerTheme: DividerThemeData(color: Colors.grey[350]),
-    radioTheme: RadioThemeData( fillColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-    if (states.contains(MaterialState.disabled)) {
-      return Colors.black;
-    }
-    return Color(0xFFED6B5E);
-  }))
+    dividerTheme: DividerThemeData(color: Colors.grey[400]),
+    radioTheme: RadioThemeData(fillColor:
+        MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      return const Color(0xFFED6B5E);
+    })),
+    cardTheme: CardTheme(color: Colors.grey[100]),
   );
 }

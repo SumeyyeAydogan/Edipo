@@ -8,7 +8,7 @@ extension MediaQueryExtension on BuildContext {
   double get height => mediaQuery.size.height;
   double get width => mediaQuery.size.width;
   double get lowValue => height * 0.01;
-  double get normalValue => width * 0.1;
+  double get normalValue => height * 0.1;
   double get mediumValue => height * 0.02;
   double get mediumLowValue => height * 0.015;
   double get highValue => height * 0.05;

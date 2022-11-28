@@ -108,7 +108,7 @@ class _TopBarMenuState extends State<TopBarMenu> {
               style: TextStyle(color: Colors.grey),
               children: <TextSpan>[
                 TextSpan(
-                    text: 'Ali Adıgüzel',
+                    text: 'Yusuf Şafak',
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.black)),
               ],
