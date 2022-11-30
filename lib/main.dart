@@ -3,6 +3,8 @@ import 'package:edipo/core/init/theme/edipo_theme.dart';
 import 'package:edipo/feature/home/view/home_view.dart';
 import 'package:flutter/material.dart';
 
+import 'feature/main/main_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: ApplicationConstants().appName,
       debugShowCheckedModeBanner: false,
       theme: EdipoTheme.defaultTheme,
-      home: const HomePage(),
+      home: const MainPage(),
     );
   }
 }

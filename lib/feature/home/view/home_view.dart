@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:edipo/core/extension/context_extension.dart';
 import 'package:edipo/feature/location/view/location_view.dart';
+import 'package:edipo/feature/profile/view/profile_view.dart';
 import 'package:edipo/product/widgets/bottom_sheet.dart';
 import 'package:edipo/product/widgets/card/place_card.dart';
 import "package:flutter/material.dart";
@@ -12,22 +13,13 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  late final TabController _tabController;
-  final double _notchedValue = 10;
+class _HomePageState extends State<HomePage> {
   final photoList = [
     "assets/images/page1.png",
     "assets/images/page2.png",
     "assets/images/page3.png",
     "assets/images/page4.png",
   ];
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController =
-        TabController(length: MyTabViews.values.length, vsync: this);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,28 +57,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            customBottomSheet(context, LocationPage());
-          },
-          child: Text('+', style: Theme.of(context).textTheme.headline1)),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        notchMargin: _notchedValue,
-        shape: const CircularNotchedRectangle(),
-        child: _myTabView(),
-      ),
     );
   }
-
-  TabBar _myTabView() {
-    return TabBar(
-        //labelColor: Colors.black,
-        padding: EdgeInsets.zero,
-        onTap: (int index) {},
-        controller: _tabController,
-        tabs: MyTabViews.values.map((e) => Tab(icon: e.iconName)).toList());
-  }
+  
 
   CarouselSlider buildSlider() {
     return CarouselSlider(
@@ -138,20 +111,5 @@ class _TopBarMenuState extends State<TopBarMenu> {
       ),
       const Spacer(),
     ]);
-  }
-}
-
-enum MyTabViews { home, profile }
-
-extension _MyTabViewsExtension on MyTabViews {
-  Icon get iconName {
-    switch (this) {
-      case MyTabViews.home:
-        return const Icon(Icons.home_outlined);
-      case MyTabViews.profile:
-        return const Icon(Icons.person_outlined);
-      default:
-        return const Icon(Icons.abc_outlined);
-    }
   }
 }
