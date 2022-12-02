@@ -1,9 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:edipo/core/extension/context_extension.dart';
+import 'package:edipo/feature/location/cubit/location_cubit_state.dart';
 import 'package:edipo/feature/location/view/location_view.dart';
 import 'package:edipo/product/widgets/bottom_sheet.dart';
 import 'package:edipo/product/widgets/card/place_card.dart';
 import "package:flutter/material.dart";
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geolocator/geolocator.dart';
+
+import '../../location/cubit/location_cubit.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,50 +36,62 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        child: Column(
-          children: [
-            SizedBox(height: context.height * 0.05),
-            const Padding(padding: EdgeInsets.symmetric(vertical:15.0), child: TopBarMenu()),
-            Padding(
-              padding: EdgeInsets.zero,
-              child: buildSlider(),
-            ),
-            SizedBox(height: context.height * 0.05),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text('Yakınımdakiler',
-                  style: Theme.of(context).textTheme.headline1),
-            ),
-            Expanded(
-              flex: 1,
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 12,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Column(
-                      children: [
-                        const PlaceCard(),
-                        SizedBox(height: context.height * 0.01),
-                      ],
-                    );
-                  }),
-            ),
-          ],
+    return BlocProvider<LocationCubit>(
+      create: (context) => LocationCubit(),
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: Column(
+            children: [
+              SizedBox(height: context.height * 0.05),
+              const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 15.0),
+                  child: TopBarMenu()),
+              Padding(
+                padding: EdgeInsets.zero,
+                child: buildSlider(),
+              ),
+              SizedBox(height: context.height * 0.05),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text('Yakınımdakiler',
+                    style: Theme.of(context).textTheme.headline1),
+              ),
+              Expanded(
+                flex: 1,
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: 12,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          const PlaceCard(),
+                          SizedBox(height: context.height * 0.01),
+                        ],
+                      );
+                    }),
+              ),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            customBottomSheet(context, LocationPage());
+        floatingActionButton: BlocBuilder<LocationCubit, LocationState>(
+          builder: (context, state) {
+            return FloatingActionButton(
+                onPressed: () {
+ 
+                 // context.read<LocationCubit>().getCurrentPos();
+                   
+                  customBottomSheet(context, LocationPage());
+                },
+                child: Text('+', style: Theme.of(context).textTheme.headline1));
           },
-          child: Text('+', style: Theme.of(context).textTheme.headline1)),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        notchMargin: _notchedValue,
-        shape: const CircularNotchedRectangle(),
-        child: _myTabView(),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomAppBar(
+          notchMargin: _notchedValue,
+          shape: const CircularNotchedRectangle(),
+          child: _myTabView(),
+        ),
       ),
     );
   }
